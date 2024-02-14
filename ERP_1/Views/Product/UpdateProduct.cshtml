@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "UpdateProduct";
+    Layout = "~/Views/Shared/product_Layout.cshtml";
+}
+
+<h2>UpdateProduct</h2>
+
+
+
+
+
+@using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post, new { @enctype = "multipart/form.data" }))
+{
+    @Html.Partial("~/Views/Product/partial/productview.cshtml")
+
+
+}

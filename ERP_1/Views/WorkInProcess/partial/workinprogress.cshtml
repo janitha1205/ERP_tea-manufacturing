@@ -1,0 +1,47 @@
+﻿@model ERP_1.Models.WorkInProcess
+<label>
+    IssueID
+</label>
+<input type="text" name="Name" value="@Model.IssueID" />
+@Html.ValidationMessageFor(x => x.IssueID)
+<br />
+    Name
+</label>
+<input type="text" name="Name" value="@Model.Name" />
+@Html.ValidationMessageFor(x => x.Name)
+<br />
+<label>
+    Discription about partly process product
+</label>
+<input type="text" name="Traget" value="@Model.Description" />
+<br />
+<label>
+    Actual ammout being processed
+</label>
+<input id="number" name="Actual" value="@Model.Ammount" />
+@Html.ValidationMessageFor(x => x.Ammount)
+
+<br />
+<label>
+    last processed mechine
+</label>
+<input id="text" name="Type" value="@Model.Last_MechName" />
+
+@Html.ValidationMessageFor(x => x.Last_MechName)
+<br />
+<label>
+    comming up mechine to be processed
+</label>
+<input id="text" name="Note" value="@Model.Next_MechName" />
+
+@Html.ValidationMessageFor(x => x.Next_MechName)
+<br />
+<label>
+    last issued employee ID
+</label>
+<input id="number" name="Note" value="@Model.Issued_Employee_id" />
+
+@Html.ValidationMessageFor(x => x.Issued_Employee_id)
+<br />
+<button type="submit">Save</button>
+

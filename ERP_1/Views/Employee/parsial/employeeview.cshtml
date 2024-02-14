@@ -1,0 +1,29 @@
+﻿@model ERP_1.Models.Employee
+<label>
+    Name
+</label>
+<input type="text" name="Name" value="@Model.Name" />
+@Html.ValidationMessageFor(x => x.Name)
+<br />
+<label>
+    SureName
+</label>
+<input type="text" name="SureName" value="@Model.SureName" />
+@Html.ValidationMessageFor(x => x.SureName)
+
+<br />
+<label>
+    Session ID
+</label>
+<p id="datetime" name="SessionID" value="@Model.SessionID"</p>
+
+<script>
+    // Get current date and time
+    var now = new Date();
+    var datetime = now.toLocaleString();
+
+    // Insert date and time into HTML
+    document.getElementById("datetime").innerHTML = datetime;
+</script>
+<br />
+<button type="submit">Save</button>

@@ -1,0 +1,36 @@
+﻿@Model Dictionary<int,ERP_1.Models.WorkInProgress>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/workinprogress_Layout.cshtml";
+    }
+
+
+    <h2>Index</h2>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Discription</th>
+            <th>Ammount</th>
+            <th>Last Mechine Name</th>
+            <th>Next Mechine Name</th>
+            <th>Issued Employee ID</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Value.IssueID </td>
+                <td>@item.Value.Name</td>
+                <td>@item.Value.Description</td>
+                <td>@item.Value.Ammount</td>
+                <td>@item.Value.Last_MechName</td>
+                <td>@item.Value.Next_MechName</td>
+                <td>@item.Value.Issued_Employee_id</td>
+            </tr>
+        }
+    </table>
+

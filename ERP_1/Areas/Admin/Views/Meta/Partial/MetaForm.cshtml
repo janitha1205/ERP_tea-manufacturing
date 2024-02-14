@@ -1,0 +1,25 @@
+﻿@model DTO.MetaDTO
+<div class="box-body">
+    <div class="form-group">
+        <label>Make a complain</label>
+        @Html.TextBoxFor(x => x.MetaContent, new { @class = "form-control", @placeholder = "eleborate the problem as a descriptive way" })
+        @Html.ValidationMessageFor(x => x.MetaContent)
+
+    </div>
+    <div class="form-group">
+        <label>Complain staff</label>
+        @Html.DropDownList("Name", new SelectList(new[] { "service dep", "administration", "production staff", "factory manager" }), new { @class = "form-control select1" })
+
+    </div>
+    <div class="form-group">
+        <label>Complain catagory</label>
+        @Html.DropDownList("About", new SelectList(new[] {"material", "mechine", "employ", "rawmaterial","Product" }), new { @class = "form-control select2" })
+
+    </div>
+    <input type="number" name="MetaID" value="@Model.MetaID" hidden />
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+
+
+    </div>
+</div>

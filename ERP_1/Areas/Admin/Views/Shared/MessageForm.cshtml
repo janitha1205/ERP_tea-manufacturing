@@ -1,0 +1,57 @@
+﻿@using ERP_1.Areas.Admin;
+@if (ViewBag.ProcessState == BLL.General.Messegess.AddSuccess)
+{
+    <div class="alert alert-success">
+        <strong>Success!! Add Operation was completed Successfully</strong>
+
+    </div>
+
+
+}
+else if (ViewBag.ProcessState == BLL.General.Messegess.EmptyArea)
+{
+
+    <div class="alert alert-danger">
+        <strong>Error!!Please fill the necessery area</strong>
+
+    </div>
+
+}
+else if (ViewBag.ProcessState == BLL.General.Messegess.UpdateSuccess)
+{
+
+    <div class="alert alert-success">
+        <strong>done!! update operation sucessfuly granted </strong>
+
+    </div>
+
+}
+else if (ViewBag.ProcessState == BLL.General.Messegess.ImageMissing)
+{
+
+    <div class="alert alert-danger">
+        <strong>unsucessfull!!image extraction is not compleate </strong>
+
+    </div>
+
+}
+
+else if (ViewBag.ProcessState == BLL.General.Messegess.ExtensionError)
+{
+
+    <div class="alert alert-danger">
+        <strong>Error!!extension error is terminated </strong>
+
+    </div>
+
+}
+
+else if (ViewBag.ProcessState == BLL.General.Messegess.GenaralError)
+{
+
+    <div class="alert alert-danger">
+        <strong>Error!!igeneral error is called </strong>
+
+    </div>
+
+}

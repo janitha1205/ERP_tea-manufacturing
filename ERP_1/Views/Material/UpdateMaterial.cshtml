@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "UpdateMaterial";
+    Layout = "~/Views/Shared/material_Layout.cshtml";
+}
+
+<h2>UpdateMaterial</h2>
+
+@using (Html.BeginForm("UpdateMaterial", "Material", FormMethod.Post, new { @enctype = "multipart/form.data" }))
+{
+    @Html.Partial("~/Views/Material/parsial/materialview.cshtml")
+
+
+}

@@ -1,0 +1,49 @@
+﻿
+@model ERP_1.Models.Material
+<label>
+    name of material
+</label>
+<input type="text" name="Name" value="@Model.Name" />
+@Html.ValidationMessageFor(x => x.Name)
+<br />
+<label>
+    Requirement of material in qty
+</label>
+<input type="number" name="Required ammount" value="@Model.Required_ammount" />
+@Html.ValidationMessageFor(x => x.Required_ammount)
+<br />
+<label>
+    Available Ammount
+</label>
+<input type="number" name="Available ammount" value="@Model.Available_ammount" />
+@Html.ValidationMessageFor(x => x.Available_ammount)
+
+<br />
+
+
+<label>
+    Note
+</label>
+<input type="text" name="Type" value="@Model.Note" />
+
+<br />
+
+<label>
+    Staff ID
+</label>
+<input type="number" name="Staff ID" value="@Model.Staff_id" />
+@Html.ValidationMessageFor(x => x.Staff_id)
+<br />
+<label>
+    Issue ID
+</label>
+<input type="checkbox" name="Issue ID" value="@Model.IssueID" />
+@Html.ValidationMessageFor(x => x.IssueID)
+<br />
+
+
+<button type="submit">Save</button>
+
+
+
+

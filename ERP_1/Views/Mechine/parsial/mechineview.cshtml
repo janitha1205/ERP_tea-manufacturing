@@ -1,0 +1,45 @@
+﻿
+@model ERP_1.Models.Mechine
+<label>
+    name of the mechine
+</label>
+<input type="text" name="MechName" value="@Model.MechName" />
+
+@Html.ValidationMessageFor(x => x.MechName)
+<br />
+<label>
+    Description
+</label>
+<input type="text" name="Description" value="@Model.Description" />
+@Html.ValidationMessageFor(x => x.Description)
+<br />
+<label>
+    type of the mechine
+</label>
+<input type="text" name="Type" value="@Model.Type" />
+@Html.ValidationMessageFor(x => x.Type)
+<br />
+<label>
+    Labourer ID for assigned to this
+</label>
+<input type="number" name="LabourID" value="@Model.LabourID" />
+@Html.ValidationMessageFor(x => x.LabourID)
+<br />
+<label>
+    current condition of the mechine : deffected
+</label>
+<input type="checkbox" name="IsDown" value="@Model.IsDown" />
+
+<br />
+<label>
+    working hours from last breakdown
+</label>
+<input type="number" name="HoursWorked" value="@Model.HoursWorked" />
+@Html.ValidationMessageFor(x => x.HoursWorked)
+<br />
+
+
+
+<button type="submit">Save</button>
+
+

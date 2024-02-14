@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "UpdateWorkInProcess";
+    Layout = "~/Views/Shared/workinprogress_Layout.cshtml";
+}
+
+<h2>UpdateWorkInProcess</h2>
+
+@using (Html.BeginForm("UpdateWorkInProcess", "WorkInProcess", FormMethod.Post, new { @enctype = "multipart/form.data" }))
+{
+    @Html.Partial("~/Views/WorkInProcess/partial/workinprogress.cshtml")
+
+
+}

@@ -1,0 +1,41 @@
+﻿@model ERP_1.Models.Product
+<label>
+    ProductID
+</label>
+<input type="text" name="Name" value="@Model.Product_ID" />
+@Html.ValidationMessageFor(x => x.Product_ID)
+<br />
+<label>
+    Name
+</label>
+<input type="text" name="Name" value="@Model.Name" />
+@Html.ValidationMessageFor(x => x.Name)
+<br />
+<label>
+    Target
+</label>
+<input type="number" name="Traget" value="@Model.Target" />
+@Html.ValidationMessageFor(x => x.Target)
+<br />
+<label>
+    Actual ammout
+</label>
+<input id="number" name="Actual" value="@Model.Actual" />
+@Html.ValidationMessageFor(x => x.Actual)
+
+<br />
+<label>
+    Type
+</label>
+<input id="text" name="Type" value="@Model.type" />
+@Html.ValidationMessageFor(x => x.type)
+
+<br />
+<label>
+    Note
+</label>
+<input id="text" name="Note" value="@Model.Note" />
+
+
+<br />
+<button type="submit">Save</button>

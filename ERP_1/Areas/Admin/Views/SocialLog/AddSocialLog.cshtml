@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "AddSocialLog";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<section class="content-header">
+
+    <h1>Add Social Log</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Admin</a></li>
+        <li class="breadcrumb-item"><a>Social Log</a></li>
+        <li class="breadcrumb-item active"><a>Add Social Log</a></li>
+
+
+    </ol>
+
+</section>
+
+<br />
+<button href="~/Admin/SocialLog/SocialLogList">"Social Log List</button>
+<br />
+
+<section class="content">
+    <div class="row">
+
+        <div class="col-md-9">
+            @Html.Partial("~/Areas/Admin/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+
+                @using (Html.BeginForm("AddSocialLog", "SocialLog", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+
+                    @Html.Partial("Partial/SocialLogForm")
+
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
