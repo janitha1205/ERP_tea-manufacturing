@@ -1,6 +1,7 @@
 ﻿using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,6 +51,33 @@ namespace DAL
                 dto.ImagePath = social.ImagePath;   
             }
             return dto;
+        }
+
+        public string UpdateSocialLog(SocialLogDTO model)
+        {
+            try
+            {
+                SocialLog social = db.SocialLogs.FirstOrDefault(x => x.ID == model.ID);
+                string oldimpath = social.ImagePath;
+                social.Name = model.Name;
+                social.Link = model.Link;
+                if (model.ImagePath!=null)
+                {
+                    social.ImagePath = model.ImagePath;
+                    social.ID = model.ID;
+                    social.LastUpdateDate = DateTime.Now;
+                    social.LastUpdateUserID = UserStatic.ID;
+                    db.SocialLogs.AddOrUpdate(social);
+                    db.SaveChanges();
+                    
+                }
+                return oldimpath;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            
         }
     }
 }

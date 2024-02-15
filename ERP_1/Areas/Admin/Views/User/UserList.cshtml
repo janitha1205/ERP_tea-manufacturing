@@ -1,23 +1,23 @@
 ﻿
 @{
-    ViewBag.Title = "SocialLogList";
+    ViewBag.Title = "UserList";
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
 
-@model List<DTO.SocialLogDTO>
+@model List<DTO.UserDTO>
 
 
 <section class="content-header">
-    <h1>Social Log List</h1>
+    <h1>User List</h1>
     <ol class="breadcrumb float-sm-left">
 
         <li class="breadcrumb-item"><a>Admin</a></li>
-        <li class="breadcrumb-item"><a>Social Log</a></li>
-        <li class="breadcrumb-item"><a>Social Log List</a></li>
+        <li class="breadcrumb-item"><a>User</a></li>
+        <li class="breadcrumb-item"><a>User List</a></li>
     </ol>
 </section>
 <div class="card-footer">
-    <a href="~/Admin/SocialLog/AddSocialLog">Add Social Log</a>
+    <a href="~/Admin/User/AddUser">Add User</a>
 
 </div>
 
@@ -26,7 +26,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">social Log  List</h3>
+        <h3 class="card-title">User List</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -35,9 +35,12 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Link</th>
+                    <th>SureName</th>
+                    <th>UserName</th>
                     <th>Image</th>
-                  
+                    <th>Update</th>
+                    <th>Delete</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -46,9 +49,11 @@
                     <tr>
                         <td>@item.ID</td>
                         <td>@item.Name</td>
-                        <td>@item.Link</td>
-                        <td><img src="~/Areas/Admin/content/socialmediaimagess/@item.ImagePath" width="20" hight="20"/></td>
-                        <td><a href="/Admin/SocialLog/UpdateSocialLog/@item.ID">Update</a></td>
+                        <td>@item.SureName</td>
+                        <td>@item.UserName</td>
+                        <td><img src="~/Areas/Admin/content/UserImage/" width="20" hight="20" /></td>
+                        <td><a href="/Admin/User/UpdateUser/@item.ID">Update</a></td>
+                        <td><a>Delete</a></td>
                     </tr>
                 }
             </tbody>
@@ -56,9 +61,12 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Link</th>
+                    <th>SureName</th>
+                    <th>UserName</th>
                     <th>Image</th>
-                  
+                    <th>Update</th>
+                    <th>Delete</th>
+
                 </tr>
             </tfoot>
         </table>
@@ -70,5 +78,5 @@
 
 
 
-    </div>
+</div>
 

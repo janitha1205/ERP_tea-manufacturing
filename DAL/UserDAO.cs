@@ -12,6 +12,44 @@ namespace DAL
 {
     public class UserDAO : PostContext
     {
+        public int AddUser(User_list newusr)
+        {
+            UserDTO dto = new UserDTO();
+            try
+            {
+                db.User_list.Add(newusr);
+                db.SaveChanges();
+                return newusr.ID;
+
+               
+                
+
+
+            }catch(Exception ex) {
+
+                throw ex;
+            }
+           
+        }
+
+        public List<UserDTO> GetUsers()
+        {
+            List<User_list> users = db.User_list.Where(x => x.infor_ID == 16).OrderBy(x=>x.AddedDate).ToList() ;  
+            List<UserDTO> userlist=new List<UserDTO>();
+            foreach(var itm in users)
+            {
+                UserDTO dto = new UserDTO();
+                dto.ID= itm.ID;
+                dto.Name= itm.Name;
+                dto.UserName = itm.username;
+                dto.SureName = itm.SureName;
+                dto.imagepath = itm.imagepath;
+                userlist.Add(dto);
+
+            }
+            return userlist;
+        }
+
         public UserDTO GetUserWithUsernameAndPassword(UserDTO model) {
             UserDTO dto= new UserDTO();
           
@@ -32,6 +70,10 @@ namespace DAL
                     dto.info_ID = user.infor_ID;
 
                     dto.session_ID = user.session_ID;
+                   dto.email=user.email;
+                    dto.imagepath= user.imagepath;
+                   
+                         
 
               
 

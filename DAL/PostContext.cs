@@ -2,6 +2,6 @@
 {
     public class PostContext
     {
-        public static PostDataEntities1 db= new PostDataEntities1();    
+    public static POSTDATAEntities db = new POSTDATAEntities(); 
     }
 }

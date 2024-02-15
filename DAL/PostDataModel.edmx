@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PostDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="POSTDATAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Log_Tab">
           <Key>
             <PropertyRef Name="ID" />
@@ -148,6 +148,10 @@
           <Property Name="staff_res" Type="xml" />
           <Property Name="session_ID" Type="int" Nullable="false" />
           <Property Name="Password" Type="varchar(max)" Nullable="false" />
+          <Property Name="imagepath" Type="varchar(max)" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="email" Type="varchar(max)" />
+          <Property Name="username" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK_Log_Tab_process type">
           <End Role="process type" Type="Self.process type" Multiplicity="0..1" />
@@ -317,7 +321,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PostDataModelStoreContainer">
+        <EntityContainer Name="POSTDATAModelStoreContainer">
           <EntitySet Name="Log_Tab" EntityType="Self.Log_Tab" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Material_ontrack" EntityType="Self.Material_ontrack" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Material_process" EntityType="Self.Material_process" Schema="dbo" store:Type="Tables" />
@@ -393,7 +397,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PostDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="POSTDATAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Log_Tab">
           <Key>
             <PropertyRef Name="ID" />
@@ -556,6 +560,10 @@
           <Property Name="staff_res" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="session_ID" Type="Int32" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Log_Tab" Relationship="Self.FK_Log_Tab_User_list" FromRole="User_list" ToRole="Log_Tab" />
           <NavigationProperty Name="Material_process" Relationship="Self.FK_Material_process_User_list" FromRole="User_list" ToRole="Material_process" />
           <NavigationProperty Name="Material_process1" Relationship="Self.FK_Material_process_User_list1" FromRole="User_list" ToRole="Material_process" />
@@ -734,7 +742,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PostDataEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="POSTDATAEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Log_Tab" EntityType="Self.Log_Tab" />
           <EntitySet Name="Material_ontrack" EntityType="Self.Material_ontrack" />
           <EntitySet Name="Material_process" EntityType="Self.Material_process" />
@@ -811,9 +819,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PostDataModelStoreContainer" CdmEntityContainer="PostDataEntities1">
+        <EntityContainerMapping StorageEntityContainer="POSTDATAModelStoreContainer" CdmEntityContainer="POSTDATAEntities">
           <EntitySetMapping Name="Log_Tab">
-            <EntityTypeMapping TypeName="PostDataModel.Log_Tab">
+            <EntityTypeMapping TypeName="POSTDATAModel.Log_Tab">
               <MappingFragment StoreEntitySet="Log_Tab">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
@@ -826,7 +834,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Material_ontrack">
-            <EntityTypeMapping TypeName="PostDataModel.Material_ontrack">
+            <EntityTypeMapping TypeName="POSTDATAModel.Material_ontrack">
               <MappingFragment StoreEntitySet="Material_ontrack">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
@@ -834,7 +842,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Material_process">
-            <EntityTypeMapping TypeName="PostDataModel.Material_process">
+            <EntityTypeMapping TypeName="POSTDATAModel.Material_process">
               <MappingFragment StoreEntitySet="Material_process">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Actual_Qt" ColumnName="Actual_Qt" />
@@ -846,7 +854,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Mechine_status">
-            <EntityTypeMapping TypeName="PostDataModel.Mechine_status">
+            <EntityTypeMapping TypeName="POSTDATAModel.Mechine_status">
               <MappingFragment StoreEntitySet="Mechine_status">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MechID" ColumnName="MechID" />
@@ -859,7 +867,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Mechines_cat">
-            <EntityTypeMapping TypeName="PostDataModel.Mechines_cat">
+            <EntityTypeMapping TypeName="POSTDATAModel.Mechines_cat">
               <MappingFragment StoreEntitySet="Mechines_cat">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -868,7 +876,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MetaInfoes">
-            <EntityTypeMapping TypeName="PostDataModel.MetaInfo">
+            <EntityTypeMapping TypeName="POSTDATAModel.MetaInfo">
               <MappingFragment StoreEntitySet="MetaInfo">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MetaID" ColumnName="MetaID" />
@@ -882,7 +890,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="process_types">
-            <EntityTypeMapping TypeName="PostDataModel.process_type">
+            <EntityTypeMapping TypeName="POSTDATAModel.process_type">
               <MappingFragment StoreEntitySet="process type">
                 <ScalarProperty Name="Process_ID" ColumnName="Process ID" />
                 <ScalarProperty Name="process_type1" ColumnName="process type" />
@@ -890,7 +898,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="processIDs">
-            <EntityTypeMapping TypeName="PostDataModel.processID">
+            <EntityTypeMapping TypeName="POSTDATAModel.processID">
               <MappingFragment StoreEntitySet="processID">
                 <ScalarProperty Name="Process_ID" ColumnName="Process ID" />
                 <ScalarProperty Name="operation_on" ColumnName="operation on" />
@@ -898,7 +906,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="products">
-            <EntityTypeMapping TypeName="PostDataModel.product">
+            <EntityTypeMapping TypeName="POSTDATAModel.product">
               <MappingFragment StoreEntitySet="product">
                 <ScalarProperty Name="IssueID" ColumnName="IssueID" />
                 <ScalarProperty Name="Actual" ColumnName="Actual" />
@@ -912,7 +920,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="product_name">
-            <EntityTypeMapping TypeName="PostDataModel.product_name">
+            <EntityTypeMapping TypeName="POSTDATAModel.product_name">
               <MappingFragment StoreEntitySet="product_name">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -921,7 +929,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SocialLogs">
-            <EntityTypeMapping TypeName="PostDataModel.SocialLog">
+            <EntityTypeMapping TypeName="POSTDATAModel.SocialLog">
               <MappingFragment StoreEntitySet="SocialLog">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -935,7 +943,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="staffs">
-            <EntityTypeMapping TypeName="PostDataModel.staff">
+            <EntityTypeMapping TypeName="POSTDATAModel.staff">
               <MappingFragment StoreEntitySet="staff">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Designantion" ColumnName="Designantion" />
@@ -946,7 +954,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="PostDataModel.sysdiagram">
+            <EntityTypeMapping TypeName="POSTDATAModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -957,7 +965,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User_list">
-            <EntityTypeMapping TypeName="PostDataModel.User_list">
+            <EntityTypeMapping TypeName="POSTDATAModel.User_list">
               <MappingFragment StoreEntitySet="User_list">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -967,6 +975,10 @@
                 <ScalarProperty Name="staff_res" ColumnName="staff_res" />
                 <ScalarProperty Name="session_ID" ColumnName="session_ID" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="imagepath" ColumnName="imagepath" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="username" ColumnName="username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
