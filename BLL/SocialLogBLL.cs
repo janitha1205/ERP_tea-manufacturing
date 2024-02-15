@@ -40,6 +40,13 @@ namespace BLL
             SocialLogDTO dto = dao.GetSocialLogByID(iD);
             return dto;
         }
+
+        public string UpdateSocialLog(SocialLogDTO model)
+        {
+            string oldimg = dao.UpdateSocialLog(model);
+            LogDAO.AddLog(General.Messegess.UpdateSuccess, "Change img path from"+oldimg,model.ID);
+            return oldimg;
+        }
     }
 }
 

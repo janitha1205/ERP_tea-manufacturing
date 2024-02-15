@@ -32,12 +32,12 @@ namespace ERP_1.Areas.Admin.Controllers
                     UserStatic.SureName = user.SureName;
                     if (user.info_ID == 15) {
                         UserStatic.isAdmin = true;
-                        LogBLL.AddLog(General.Messegess.AddSuccess, "Login as admin", user.ID);
+                        LogBLL.AddLog(General.Messegess.AddSuccess, "Login as admin", 5);
                         return RedirectToAction("Index", "Post");
                     }
                     else {
                         UserStatic.isAdmin = false;
-                        LogBLL.AddLog(General.Messegess.AddSuccess, "login as a user", user.ID);
+                        LogBLL.AddLog(General.Messegess.AddSuccess, "login as a user", 5);
                         return RedirectToAction("AddMeta", "Meta");
                     }
                    
