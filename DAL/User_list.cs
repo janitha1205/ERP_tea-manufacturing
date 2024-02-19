@@ -21,8 +21,6 @@ namespace DAL
             this.Material_process = new HashSet<Material_process>();
             this.Material_process1 = new HashSet<Material_process>();
             this.Mechine_status = new HashSet<Mechine_status>();
-            this.MetaInfoes = new HashSet<MetaInfo>();
-            this.MetaInfoes1 = new HashSet<MetaInfo>();
             this.products = new HashSet<product>();
             this.SocialLogs = new HashSet<SocialLog>();
         }
@@ -48,10 +46,6 @@ namespace DAL
         public virtual ICollection<Material_process> Material_process1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mechine_status> Mechine_status { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MetaInfo> MetaInfoes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MetaInfo> MetaInfoes1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<product> products { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -61,12 +61,12 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MetaID" Type="int" Nullable="false" />
-          <Property Name="MetaContent" Type="varchar(max)" Nullable="false" />
-          <Property Name="AddDate" Type="datetime" Nullable="false" />
+          <Property Name="MetaContent" Type="varchar(max)" />
+          <Property Name="AddedDate" Type="datetime" />
           <Property Name="isDeleted" Type="bit" />
           <Property Name="DeletedDate" Type="datetime" />
-          <Property Name="LastUpdateUser" Type="int" Nullable="false" />
-          <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdatedUserID" Type="int" />
+          <Property Name="LastUpdatedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="process type">
           <Key>
@@ -249,30 +249,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MetaInfo_User_list">
-          <End Role="User_list" Type="Self.User_list" Multiplicity="1" />
-          <End Role="MetaInfo" Type="Self.MetaInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User_list">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="MetaInfo">
-              <PropertyRef Name="MetaID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MetaInfo_User_list1">
-          <End Role="User_list" Type="Self.User_list" Multiplicity="1" />
-          <End Role="MetaInfo" Type="Self.MetaInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User_list">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="MetaInfo">
-              <PropertyRef Name="LastUpdateUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_product_product_name">
           <End Role="product_name" Type="Self.product_name" Multiplicity="1" />
           <End Role="product" Type="Self.product" Multiplicity="*" />
@@ -368,14 +344,6 @@
             <End Role="User_list" EntitySet="User_list" />
             <End Role="Mechine_status" EntitySet="Mechine_status" />
           </AssociationSet>
-          <AssociationSet Name="FK_MetaInfo_User_list" Association="Self.FK_MetaInfo_User_list">
-            <End Role="User_list" EntitySet="User_list" />
-            <End Role="MetaInfo" EntitySet="MetaInfo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MetaInfo_User_list1" Association="Self.FK_MetaInfo_User_list1">
-            <End Role="User_list" EntitySet="User_list" />
-            <End Role="MetaInfo" EntitySet="MetaInfo" />
-          </AssociationSet>
           <AssociationSet Name="FK_product_product_name" Association="Self.FK_product_product_name">
             <End Role="product_name" EntitySet="product_name" />
             <End Role="product" EntitySet="product" />
@@ -464,14 +432,12 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MetaID" Type="Int32" Nullable="false" />
-          <Property Name="MetaContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MetaContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
           <Property Name="isDeleted" Type="Boolean" />
           <Property Name="DeletedDate" Type="DateTime" Precision="3" />
-          <Property Name="LastUpdateUser" Type="Int32" Nullable="false" />
-          <Property Name="LastUpdateDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="User_list" Relationship="Self.FK_MetaInfo_User_list" FromRole="MetaInfo" ToRole="User_list" />
-          <NavigationProperty Name="User_list1" Relationship="Self.FK_MetaInfo_User_list1" FromRole="MetaInfo" ToRole="User_list" />
+          <Property Name="LastUpdatedUserID" Type="Int32" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="process_type">
           <Key>
@@ -568,8 +534,6 @@
           <NavigationProperty Name="Material_process" Relationship="Self.FK_Material_process_User_list" FromRole="User_list" ToRole="Material_process" />
           <NavigationProperty Name="Material_process1" Relationship="Self.FK_Material_process_User_list1" FromRole="User_list" ToRole="Material_process" />
           <NavigationProperty Name="Mechine_status" Relationship="Self.FK_Mechine_status_User_list" FromRole="User_list" ToRole="Mechine_status" />
-          <NavigationProperty Name="MetaInfoes" Relationship="Self.FK_MetaInfo_User_list" FromRole="User_list" ToRole="MetaInfo" />
-          <NavigationProperty Name="MetaInfoes1" Relationship="Self.FK_MetaInfo_User_list1" FromRole="User_list" ToRole="MetaInfo" />
           <NavigationProperty Name="products" Relationship="Self.FK_product_User_list" FromRole="User_list" ToRole="product" />
           <NavigationProperty Name="SocialLogs" Relationship="Self.FK_SocialLog_User_list" FromRole="User_list" ToRole="SocialLog" />
           <NavigationProperty Name="staff" Relationship="Self.FK_User_list_staff" FromRole="User_list" ToRole="staff" />
@@ -670,30 +634,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MetaInfo_User_list">
-          <End Role="User_list" Type="Self.User_list" Multiplicity="1" />
-          <End Role="MetaInfo" Type="Self.MetaInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User_list">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="MetaInfo">
-              <PropertyRef Name="MetaID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MetaInfo_User_list1">
-          <End Role="User_list" Type="Self.User_list" Multiplicity="1" />
-          <End Role="MetaInfo" Type="Self.MetaInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User_list">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="MetaInfo">
-              <PropertyRef Name="LastUpdateUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_product_product_name">
           <End Role="product_name" Type="Self.product_name" Multiplicity="1" />
           <End Role="product" Type="Self.product" Multiplicity="*" />
@@ -789,14 +729,6 @@
             <End Role="User_list" EntitySet="User_list" />
             <End Role="Mechine_status" EntitySet="Mechine_status" />
           </AssociationSet>
-          <AssociationSet Name="FK_MetaInfo_User_list" Association="Self.FK_MetaInfo_User_list">
-            <End Role="User_list" EntitySet="User_list" />
-            <End Role="MetaInfo" EntitySet="MetaInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MetaInfo_User_list1" Association="Self.FK_MetaInfo_User_list1">
-            <End Role="User_list" EntitySet="User_list" />
-            <End Role="MetaInfo" EntitySet="MetaInfoes" />
-          </AssociationSet>
           <AssociationSet Name="FK_product_product_name" Association="Self.FK_product_product_name">
             <End Role="product_name" EntitySet="product_name" />
             <End Role="product" EntitySet="products" />
@@ -881,11 +813,11 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MetaID" ColumnName="MetaID" />
                 <ScalarProperty Name="MetaContent" ColumnName="MetaContent" />
-                <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
-                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
-                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="LastUpdatedUserID" ColumnName="LastUpdatedUserID" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

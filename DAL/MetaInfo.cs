@@ -17,13 +17,10 @@ namespace DAL
         public int ID { get; set; }
         public int MetaID { get; set; }
         public string MetaContent { get; set; }
-        public System.DateTime AddDate { get; set; }
+        public Nullable<System.DateTime> AddedDate { get; set; }
         public Nullable<bool> isDeleted { get; set; }
         public Nullable<System.DateTime> DeletedDate { get; set; }
-        public int LastUpdateUser { get; set; }
-        public System.DateTime LastUpdateDate { get; set; }
-    
-        public virtual User_list User_list { get; set; }
-        public virtual User_list User_list1 { get; set; }
+        public Nullable<int> LastUpdatedUserID { get; set; }
+        public Nullable<System.DateTime> LastUpdatedDate { get; set; }
     }
 }
