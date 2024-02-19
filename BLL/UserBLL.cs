@@ -38,6 +38,11 @@ namespace BLL
             return userdao.GetUsers();
         }
 
+        public UserDTO GetUserWithID(int id)
+        {
+            return userdao.GetUserWithID(id);
+        }
+
         public UserDTO GetUserWithUsernameAndPassword(UserDTO model) {
 
             UserDTO dto = new UserDTO();
@@ -48,5 +53,11 @@ namespace BLL
         
         }
 
+        public string UpdateUser(UserDTO dto)
+        {
+            string oldimgpath = userdao.UpdateUser(dto);
+            LogDAO.AddLog(General.Messegess.UpdateSuccess, "changed the image path sucessfully ", dto.ID);
+            return oldimgpath;
+        }
     }
 }

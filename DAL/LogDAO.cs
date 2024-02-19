@@ -29,7 +29,7 @@ namespace DAL
                 log.ProcessIPAddress = HttpContext.Current.Request.UserHostAddress;
 
                 db.Log_Tab.Add(log);
-                db.SaveChanges();
+                
             
             
 
