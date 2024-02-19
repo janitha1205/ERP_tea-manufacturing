@@ -29,13 +29,18 @@ namespace BLL
             newusr.username = dto.UserName;
             newusr.AddedDate=DateTime.Now;
             int id = userdao.AddUser(newusr);
-            LogDAO.AddLog(General.Messegess.AddSuccess, "user is sucessfully added for further completion", id);
+            LogBLL.AddLog(General.Messegess.AddSuccess, "user is sucessfully added for further completion");
 
         }
 
         public List<UserDTO> GetUsers()
         {
             return userdao.GetUsers();
+        }
+
+        public UserDTO GetUserWithID(int id)
+        {
+            return userdao.GetUserWithID(id);
         }
 
         public UserDTO GetUserWithUsernameAndPassword(UserDTO model) {
@@ -48,5 +53,11 @@ namespace BLL
         
         }
 
+        public string UpdateUser(UserDTO dto)
+        {
+            string oldimgpath = userdao.UpdateUser(dto);
+            LogBLL.AddLog(General.Messegess.UpdateSuccess, "changed the image path sucessfully ");
+            return oldimgpath;
+        }
     }
 }
