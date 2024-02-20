@@ -14,12 +14,13 @@
     <div class="form-group">
         <label>Link</label>
         @Html.LabelFor(x => x.SocialImage)
+        <br/>
         <input type="file" name="SocialImage" accept="image/gif,image/jpeg,image/jpg, image/png" onchange="$('SocialImage')[0].src=window.URL.createObjectURL(this.files[0])"/>
         <br/>
-        @if (Model != null && Model.ImagePath != null)
+        @if (Model != null && Model.SocialImage != null)
         {
             <br />
-            <img src="" width="300" height="200"  />
+            <img src="~/Areas/Admin/content/socialmediaimagess/@Model.ImagePath" width="100" height="100"  />
         }
         else
         {

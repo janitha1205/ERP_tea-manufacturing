@@ -12,11 +12,11 @@ namespace ERP_1.Areas.Admin.Controllers
 {
     public class SocialLogController : Controller
     {
-        SocialLogBLL bll= new SocialLogBLL();
+        SocialLogBLL bll = new SocialLogBLL();
         // GET: Admin/SocialLog
         public ActionResult AddSocialLog()
         {
-            SocialLogDTO socialLog = new SocialLogDTO();    
+            SocialLogDTO socialLog = new SocialLogDTO();
             return View(socialLog);
         }
         [HttpPost]
@@ -26,22 +26,24 @@ namespace ERP_1.Areas.Admin.Controllers
             {
                 ViewBag.ProcessState = General.Messegess.ImageMissing;
                 return View(dto);
-            }else if (ModelState.IsValid)
+            }
+            else if (ModelState.IsValid)
             {
                 HttpPostedFileBase postedfile = dto.SocialImage;
                 Bitmap Socialmedia = new Bitmap(postedfile.InputStream);
                 string ext = Path.GetExtension(postedfile.FileName);
                 string filename = "";
-                if(ext==".jpg"|| ext == ".jpeg"|| ext == ".png"|| ext == ".gif") {
+                if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".gif")
+                {
 
-                    string uniqname=Guid.NewGuid().ToString();
+                    string uniqname = Guid.NewGuid().ToString();
                     filename = uniqname + postedfile.FileName;
                     Socialmedia.Save(Server.MapPath("~/Areas/Admin/content/socialmediaimagess/" + filename));
                     dto.ImagePath = filename;
-                    if (bll.AddSocialLog(dto)) 
+                    if (bll.AddSocialLog(dto))
                     {
-                        ViewBag.ProcessState=General.Messegess.AddSuccess;
-                        dto=new SocialLogDTO();
+                        ViewBag.ProcessState = General.Messegess.AddSuccess;
+                        dto = new SocialLogDTO();
                         ModelState.Clear();
 
                     }
@@ -63,8 +65,9 @@ namespace ERP_1.Areas.Admin.Controllers
 
         }
 
-        public ActionResult SocialLogList() { 
-        
+        public ActionResult SocialLogList()
+        {
+
             List<SocialLogDTO> list = new List<SocialLogDTO>();
 
             list = bll.GetSocialLog();
@@ -72,16 +75,53 @@ namespace ERP_1.Areas.Admin.Controllers
         }
         public ActionResult UpdateSocialLog(int ID)
         {
-            SocialLogDTO dto = bll.GetSocialLogByID(ID);  
+            SocialLogDTO dto = bll.GetSocialLogByID(ID);
             return View(dto);
 
         }
         [HttpPost]
         public ActionResult UpdateSocialLog(SocialLogDTO model)
         {
-            return View(model);
+            if (!ModelState.IsValid)
+            {
+                ViewBag.ProcessState = General.Messegess.EmptyArea;
+
+
+            }
+            else
+            {
+                if (model.SocialImage != null)
+                {
+                    HttpPostedFileBase postedfile = model.SocialImage;
+                    Bitmap Socialmedia = new Bitmap(postedfile.InputStream);
+                    string ext = Path.GetExtension(postedfile.FileName);
+                    string filename = "";
+                    if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".gif")
+                    {
+
+                        string uniqname = Guid.NewGuid().ToString();
+                        filename = uniqname + postedfile.FileName;
+                        Socialmedia.Save(Server.MapPath("~/Areas/Admin/content/socialmediaimagess/" + filename));
+                        model.ImagePath = filename;
+                    }
+                    }
+                    string oldimg = bll.UpdateSocialLog(model);
+                    if (model.SocialImage != null)
+                    {
+                        if (System.IO.File.Exists(Server.MapPath("~/Areas/Admin/content/socialmediaimagess/" + oldimg)))
+                        {
+
+                            System.IO.File.Delete(Server.MapPath("~/Areas/Admin/content/socialmediaimagess/" + oldimg));
+                        }
+                    }
+                    ViewBag.ProcessState = General.Messegess.UpdateSuccess;
+                }
+                return View(model);
+
+            }
+            
 
         }
 
-    }
+    
 }

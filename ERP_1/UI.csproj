@@ -137,6 +137,7 @@
     <Compile Include="Areas\Admin\Controllers\MetaController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostController.cs" />
     <Compile Include="Areas\Admin\Controllers\SocialLogController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MechineController.cs" />
@@ -187,6 +188,10 @@
     <Content Include="Areas\Admin\Views\SocialLog\Partial\SocialLogForm.cshtml" />
     <Content Include="Areas\Admin\Views\SocialLog\SocialLogList.cshtml" />
     <Content Include="Areas\Admin\Views\SocialLog\UpdateSocialLog.cshtml" />
+    <Content Include="Areas\Admin\Views\User\AddUser.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Partial\UserForm.cshtml" />
+    <Content Include="Areas\Admin\Views\User\UserList.cshtml" />
+    <Content Include="Areas\Admin\Views\User\UpdateUser.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -235,6 +240,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\content\socialmediaimagess\" />
+    <Folder Include="Areas\Admin\content\UserImage\" />
     <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>

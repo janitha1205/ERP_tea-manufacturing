@@ -35,6 +35,10 @@ namespace DAL
         public string staff_res { get; set; }
         public int session_ID { get; set; }
         public string Password { get; set; }
+        public string imagepath { get; set; }
+        public Nullable<System.DateTime> AddedDate { get; set; }
+        public string email { get; set; }
+        public string username { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Log_Tab> Log_Tab { get; set; }
