@@ -1,0 +1,36 @@
+﻿ @model DTO.BOMDTO
+ @model DTO.BomAdv
+<div class="box-body">
+    <label>Number of manufacturing process details</label>
+    @for (int i = 0; i < Model.Numberofprocess; i++)
+    {
+        <br />
+        <div class="form-group">
+            <label>mechine id @i</label>
+            @Html.TextBoxFor(m => m.Mechine_id[i], new { @class = "form-control", @placeholder = "product name", @type = "number" })
+
+        </div>
+        <br />
+        <div class="form-group">
+            <label>mechine name @i</label>
+            @Html.TextBoxFor(m => m.Mechine_name[i], new { @class = "form-control", @placeholder = "machine name" })
+
+        </div>
+        <br />
+        <div class="form-group">
+            <label>number of employees @i</label>
+            @Html.TextBoxFor(m => m.Numberofemployee[i], new { @class = "form-control", @placeholder = "number of employes for stations", @type = "number", @min = "1" })
+
+        </div>
+
+    }
+
+    <input type="number" name="ID" value="@Model.ID" hidden />
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+
+
+    </div>
+
+</div>

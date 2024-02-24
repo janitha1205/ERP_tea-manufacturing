@@ -25,6 +25,7 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BOM> BOMs { get; set; }
         public virtual DbSet<Log_Tab> Log_Tab { get; set; }
         public virtual DbSet<Material_ontrack> Material_ontrack { get; set; }
         public virtual DbSet<Material_process> Material_process { get; set; }

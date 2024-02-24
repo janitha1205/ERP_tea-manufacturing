@@ -17,6 +17,7 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User_list()
         {
+            this.BOMs = new HashSet<BOM>();
             this.Log_Tab = new HashSet<Log_Tab>();
             this.Material_process = new HashSet<Material_process>();
             this.Material_process1 = new HashSet<Material_process>();
@@ -57,6 +58,8 @@ namespace DAL
         public string email { get; set; }
         public string username { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BOM> BOMs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Log_Tab> Log_Tab { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

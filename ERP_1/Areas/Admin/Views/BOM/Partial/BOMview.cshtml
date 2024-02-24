@@ -1,0 +1,25 @@
+﻿@model DTO.BOMDTO
+<div class="box-body">
+    <label>Number of manufacturing process details</label>
+    <div class="form-group">
+        <label>Number of process</label>
+        @Html.TextBoxFor(x => x.Numberofprocess, new { @class = "form-control", @placeholder = "enter number of sub manufacturing stations", @type = "number", @min = "1" })
+
+
+
+
+    </div>
+    <div class="form-group">
+        <label>Name of the product</label>
+        @Html.TextBoxFor(x => x.Product_name, new { @class = "form-control", @placeholder = "product name" })
+        @Html.ValidationMessageFor(x => x.Product_name)
+    </div>
+    <input type="number" name="ID" value="@Model.ID" hidden />
+    
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+
+
+    </div>
+
+</div>
