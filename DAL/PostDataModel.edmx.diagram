@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0d652306c0a64f529e0ad47d9147c36a" Name="Diagram1">
+      <Diagram DiagramId="12456aff71604df19f88d58460b8b47a" Name="Diagram1">
         <EntityTypeShape EntityType="POSTDATAModel.Log_Tab" Width="1.5" PointX="8.25" PointY="29" IsExpanded="true" />
         <EntityTypeShape EntityType="POSTDATAModel.Material_ontrack" Width="1.5" PointX="6" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="POSTDATAModel.Material_process" Width="1.5" PointX="8.25" PointY="25.125" IsExpanded="true" />
