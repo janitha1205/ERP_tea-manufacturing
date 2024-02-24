@@ -133,12 +133,16 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BOMadnvacedController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BOMController.cs" />
     <Compile Include="Areas\Admin\Controllers\FEController.cs" />
     <Compile Include="Areas\Admin\Controllers\FMController.cs" />
     <Compile Include="Areas\Admin\Controllers\HREController.cs" />
     <Compile Include="Areas\Admin\Controllers\HRMController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MechinesController.cs" />
     <Compile Include="Areas\Admin\Controllers\MOController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MPPController.cs" />
     <Compile Include="Areas\Admin\Controllers\PEController.cs" />
     <Compile Include="Areas\Admin\Controllers\PMController.cs" />
     <Compile Include="Areas\Admin\Controllers\SEController.cs" />
@@ -215,6 +219,13 @@
     <Content Include="Areas\Admin\Views\ST\Partial\MetaForm.cshtml" />
     <Content Include="Areas\Admin\Views\ST\MetaList_ST.cshtml" />
     <Content Include="Areas\Admin\Views\ST\AddMeta_ST.cshtml" />
+    <Content Include="Areas\Admin\Views\BOM\Partial\BOMview.cshtml" />
+    <Content Include="Areas\Admin\Views\BOMadnvaced\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BOM\starbom.cshtml" />
+    <Content Include="Areas\Admin\Views\BOMadnvaced\Partial\BomAdvView.cshtml" />
+    <Content Include="Areas\Admin\Views\BOMadnvaced\Processdisp.cshtml" />
+    <Content Include="Areas\Admin\Views\Mechines\Partial\MechineView.cshtml" />
+    <Content Include="Areas\Admin\Views\Mechines\AddMechines.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -265,6 +276,7 @@
     <Folder Include="Areas\Admin\content\socialmediaimagess\" />
     <Folder Include="Areas\Admin\content\UserImage\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\MPP\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>

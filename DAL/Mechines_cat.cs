@@ -17,7 +17,7 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Mechines_cat()
         {
-            this.Mechine_status = new HashSet<Mechine_status>();
+            this.Mechines = new HashSet<Mechine>();
         }
     
         public int ID { get; set; }
@@ -25,6 +25,6 @@ namespace DAL
         public string Picture { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Mechine_status> Mechine_status { get; set; }
+        public virtual ICollection<Mechine> Mechines { get; set; }
     }
 }

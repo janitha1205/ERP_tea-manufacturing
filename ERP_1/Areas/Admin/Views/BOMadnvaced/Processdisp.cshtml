@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Processdisp";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Processdisp</h2>
+
+
+
+<section class="content">
+    <div class="row">
+
+        <div class="col-md-9">
+            @Html.Partial("~/Areas/Admin/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+
+                @using (Html.BeginForm("Processdisp", "BOMadnvaced", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+
+                    @Html.Partial("Partial/BomAdvView")
+
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>

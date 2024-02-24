@@ -1,0 +1,39 @@
+﻿@model DTO.BOMDTO
+<div class="box-body">
+    <label>Number of manufacturing process details</label>
+    <div class="form-group">
+        <label>Number of process</label>
+        @Html.TextBoxFor(x => x.Numberofprocess, new { @class = "form-control", @placeholder = "enter number of sub manufacturing stations", @type = "number", @min = "1" })
+
+
+
+
+    </div>
+    <div class="form-group">
+        <label>Name of the product</label>
+        <label>
+           1- Silver Tip
+           2- Orange Pekoe
+           3- Flowery Broken Orange Pekoe (FBOP)
+           4- Broken Orange Pekoe 1 (BOP1)
+           5- Pekoe
+           6- Broken Orange Pekoe (BOP)
+           7- Broken Orange Pekoe Fannings (BOPF)
+           8- DUST 1
+           9- Flowery Broken Orange Pekoe Fanning Extra Special (FBOPF EX.SP)
+           10- Golden Tips
+           11- Flowery Fannings 1 (FF1)
+           12- Gunpowder
+        </label>
+        @Html.DropDownList("Product_name", new SelectList(new[] {"1","2","3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }), new { @class = "form-control select1", @type="number",@placeholder = "product name" })
+        @Html.ValidationMessageFor(x => x.Product_name)
+    </div>
+    <input type="number" name="ID" value="@Model.ID" hidden />
+    
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+
+
+    </div>
+
+</div>

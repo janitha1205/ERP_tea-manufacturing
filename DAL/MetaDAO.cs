@@ -322,9 +322,9 @@ namespace DAL
                 {
                     MetaDTO_FE dto = new MetaDTO_FE();
 
-                    // item.Name=="FM"|| item.Name=="HRM"14|| item.Name=="PM"||item.Name=="ST" 3 4 
+                    // ,"FM","HRM","PM","ST" 
                     //"mechine", "employ","wages","leaves"
-                    if (item.MetaContent != null && (item.About == "mechine" || item.About == "employ" || item.About == "wages" || item.About == "leaves") && (item.Name == "FM" || item.Name == "HRM" || item.Name == "PM" || item.Name == "ST"))
+                    if (item.MetaContent != null  && (item.Name == "FM" || item.Name == "HRM" || item.Name == "PM" || item.Name == "ST"))
                     {
 
                         dto.ID = item.ID;
@@ -349,7 +349,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
         public List<MetaDTO_FM> GetMetaData_FM()
@@ -363,10 +363,10 @@ namespace DAL
                 foreach (var item in matalist)
                 {
                     MetaDTO_FM dto = new MetaDTO_FM();
-                 
-                   
-                    
-                    if (item.MetaContent != null)
+
+                    //"HRM","FE","PM"
+
+                    if (item.MetaContent != null && (item.Name == "HRM" || item.Name == "FE" || item.Name == "PM"))
                     {
 
                         dto.ID = item.ID;
@@ -389,7 +389,7 @@ namespace DAL
                 return list;
             }catch(Exception ex)
             {
-                return null;
+                throw ex;
             }
 
         }
@@ -409,10 +409,10 @@ namespace DAL
                 {
                     MetaDTO_HRE dto = new MetaDTO_HRE();
 
-
+                    //"HRM","PE","SE","FE"
 
                     //item.Name=="HRM"||item.Name== "MO" ||item.Name== "PE"|| item.Name=="SE"||item.Name=="ST"
-                    if (item.MetaContent != null && (item.About == "employ" || item.About == "wages" || item.About == "leaves") && (item.Name == "HRM" || item.Name == "MO" || item.Name == "PE" || item.Name == "SE" || item.Name == "ST"))
+                    if (item.MetaContent != null && (item.Name == "HRM"  || item.Name == "PE" || item.Name == "SE" || item.Name == "FE"))
                     {
 
                         dto.ID = item.ID;
@@ -435,7 +435,7 @@ namespace DAL
                 return list;
             }catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
 
         }
@@ -448,16 +448,9 @@ namespace DAL
                 List<MetaDTO> matalist = merge_data();
                 foreach (var item in matalist)
                 {
+                    //"FM","HRE","PM","FE"
                     MetaDTO_HRM dto = new MetaDTO_HRM();
-                    int val = item.MetaID;
-                    string log = db.User_list.FirstOrDefault(y => y.ID == val).Name;
-                    int infoId = db.User_list.FirstOrDefault(y => y.ID == val).infor_ID;
-                    string dep = db.staffs.FirstOrDefault(y => y.ID == infoId).Department;
-
-                    //log != null && (dep== "employ"|| dep=="wages"||dep=="leaves")&&(infoId==12 || infoId==8 || infoId==6|| infoId==7 || infoId==13||  infoId==14)
-                    // "employ","wages","leaves"
-                    //                                                                "FM" 12, "HRE" 8, "PM" 6,"FE" 7
-                    if (item.MetaContent != null && (item.About == "employ" || item.About == "wages" || item.About == "leaves") && (item.Name == "FM" || item.Name == "HRE" || item.Name == "PM" || item.Name == "FE"))
+                    if (item.MetaContent != null && (item.Name == "FM" || item.Name == "HRE" || item.Name == "PM" || item.Name == "FE"))
                     {
 
                         dto.ID = item.ID;
@@ -480,7 +473,7 @@ namespace DAL
                 return list;
             }catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
 
         }
@@ -494,15 +487,13 @@ namespace DAL
                 foreach (var item in matalist)
                 {
                     MetaDTO_MO dto = new MetaDTO_MO();
-                    int val = item.MetaID;
-                    string log = db.User_list.FirstOrDefault(y => y.ID == val).Name;
-                    int infoId = db.User_list.FirstOrDefault(y => y.ID == val).infor_ID;
-                    string dep = db.staffs.FirstOrDefault(y => y.ID == infoId).Department;
+
 
                     //   "material", "mechine", "employ", "rawmaterial","Product","wages","leaves"
                     //item.Name="ST"|| item.Name=="HRE" || item.Name== "PE"|| item.Name=="SE" 
+                    //"ST","HRE","PE","SE"
                     //&& (infoId == 3 || infoId == 4 || infoId == 8 || infoId == 5 || infoId == 13 || infoId == 14)
-                    if (item.MetaContent != null && (item.About == "material" || item.About == "mechine" || item.About == "rawmaterial" || item.About == "Product" || item.About == "leaves") && (item.Name == "ST" || item.Name == "HRE" || item.Name == "PE" || item.Name == "SE"))
+                    if (item.MetaContent != null && (item.Name == "ST" || item.Name == "HRE" || item.Name == "PE" || item.Name == "SE"))
                     {
 
                         dto.ID = item.ID;
@@ -526,7 +517,7 @@ namespace DAL
 
             }catch(Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
 
@@ -539,11 +530,11 @@ namespace DAL
                 foreach (var item in matalist)
                 {
                     MetaDTO_PE dto = new MetaDTO_PE();
-                   
+
                     //item.Name=="SE" || item.Name=="MO" || item.Name=="PM"||item.Name=="HRE"||item.Name=="ST"
                     //"material", "mechine", "employ", "rawmaterial","Product","leaves"
-                    //&& (infoId == 1 || infoId == 2 || infoId == 6 || infoId == 8 || infoId == 13 || infoId == 4 || infoId== 3)
-                    if (item.MetaContent != null && (item.About == "material" || item.About == "material" || item.About == "mechine" || item.About == "employ" || item.About == "rawmaterial" || item.About == "Product" || item.About == "leaves") && (item.Name == "SE" || item.Name == "MO" || item.Name == "PM" || item.Name == "HRE" || item.Name == "ST"))                {
+                    //"SE","MO","PM","HRE","FE"
+                    if (item.MetaContent != null && (item.Name == "SE" || item.Name == "MO" || item.Name == "PM" || item.Name == "HRE" || item.Name == "FE"))                {
 
                         dto.ID = item.ID;
                         dto.MetaID = item.MetaID;
@@ -566,7 +557,7 @@ namespace DAL
 
             }catch(Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
 
@@ -579,13 +570,13 @@ namespace DAL
                 foreach (var item in matalist)
                 {
                     MetaDTO_PM dto = new MetaDTO_PM();
-                
+
 
                     // item.Name=="FE"||item.Name== "HRM" ||item.Name== "PE" ||item.Name=="SE" ||item.Name== "FM" 
-
+                    //"FE","HRM","PE","SE","FM"
                     //&& ( infoId == 7 || infoId == 14 || infoId == 5 || infoId == 13 || infoId== 3)
 
-                    if (item.MetaContent != null && (item.About == "material" || item.About == "mechine" || item.About == "employ" || item.About == "rawmaterial" || item.About == "Product" || item.About == "wages" || item.About == "leaves") && (item.Name == "FE" || item.Name == "HRM" || item.Name == "PE" || item.Name == "SE" || item.Name == "FM"))
+                    if (item.MetaContent != null && (item.Name == "FE" || item.Name == "HRM" || item.Name == "PE" || item.Name == "SE" || item.Name == "FM"))
                     {
 
                         dto.ID = item.ID;
@@ -609,7 +600,7 @@ namespace DAL
 
             }catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
         public List<MetaDTO_SE> GetMetaData_SE()
@@ -624,9 +615,9 @@ namespace DAL
 
                     //"material", "mechine", "employ", "rawmaterial","Product","wages","leaves"
                     //item.Name=="ST"||item.Name=="HRE"||item.Name=="PE"||item.Name=="FE"
-
+                    // "PM","HRE","PE","FE"
                     //&& ( infoId == 7 || infoId == 8 || infoId == 5 || infoId == 3 || infoId== 4 || IndoId==13)
-                    if (item.MetaContent != null && (item.About == "material" || item.About == "rawmaterial" || item.About == "Product" || item.About == "leaves") && (item.Name == "ST" || item.Name == "HRE" || item.Name == "PE" || item.Name == "FE"))
+                    if (item.MetaContent != null && (item.Name == "PM" || item.Name == "HRE" || item.Name == "PE" || item.Name == "FE"))
                     {
 
                         dto.ID = item.ID;
@@ -649,7 +640,7 @@ namespace DAL
                 return list;
             }catch(Exception ex)
             {
-                return null;
+                throw ex;
             }
 
         }
@@ -667,7 +658,7 @@ namespace DAL
                     //"mechine", "employ","wages","leaves"
                     //item.Name=="FE"||item.Name=="HRE"||item.Name== "PE"||item.Name=="MO"||item.Name=="SE"
                     //&& ( infoId == 7 || infoId == 8 || infoId == 5 || infoId == 1 || infoId== 2 || IndoId==13)
-                    if (item.MetaContent != null && (item.About == "mechine" || item.About == "employ" || item.About == "wages" || item.About == "leaves") && (item.Name == "FE" || item.Name == "HRE" || item.Name == "PE" || item.Name == "MO" || item.Name == "SE"))
+                    if (item.MetaContent != null && (item.Name == "FE"  || item.Name == "MO"))
                     {
 
                         dto.ID = item.ID;
@@ -691,7 +682,7 @@ namespace DAL
 
             }catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
 

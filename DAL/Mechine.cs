@@ -12,14 +12,14 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Mechine_status
+    public partial class Mechine
     {
         public int ID { get; set; }
         public int MechID { get; set; }
         public string Description { get; set; }
         public int Type { get; set; }
-        public int LabourID { get; set; }
-        public bool IsDown { get; set; }
+        public Nullable<int> LabourID { get; set; }
+        public Nullable<bool> IsDown { get; set; }
         public Nullable<int> active_range { get; set; }
     
         public virtual Mechines_cat Mechines_cat { get; set; }

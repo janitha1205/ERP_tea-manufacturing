@@ -44,22 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BomadvBLL.cs" />
+    <Compile Include="BomBLL.cs" />
     <Compile Include="General.cs" />
     <Compile Include="LogBLL.cs" />
+    <Compile Include="MechineBLL.cs" />
     <Compile Include="MetaBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SocialLogBLL.cs" />
     <Compile Include="UserBLL.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{a3b7baee-a85d-452e-8db8-b4889b35d304}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{a957cb7a-2fdd-403d-84db-dcdb730961e1}</Project>
-      <Name>DTO</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

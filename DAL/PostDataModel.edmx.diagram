@@ -4,37 +4,40 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0d652306c0a64f529e0ad47d9147c36a" Name="Diagram1">
-        <EntityTypeShape EntityType="POSTDATAModel.Log_Tab" Width="1.5" PointX="8.25" PointY="29" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Material_ontrack" Width="1.5" PointX="6" PointY="22.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Material_process" Width="1.5" PointX="8.25" PointY="25.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Mechine_status" Width="1.5" PointX="8.25" PointY="33.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Mechines_cat" Width="1.5" PointX="6" PointY="13.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.process_type" Width="1.5" PointX="6" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.processID" Width="1.5" PointX="6" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.product" Width="1.5" PointX="11.25" PointY="29" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.product_name" Width="1.5" PointX="9" PointY="21.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.SocialLog" Width="1.5" PointX="5.25" PointY="25.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.staff" Width="1.5" PointX="0.75" PointY="29.5" IsExpanded="true" />
+      <Diagram DiagramId="9af2a5715eb14161aae8715622fd4463" Name="Diagram1">
+        <EntityTypeShape EntityType="POSTDATAModel.BOM" Width="1.5" PointX="8.25" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Log_Tab" Width="1.5" PointX="8.25" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Material_ontrack" Width="1.5" PointX="6" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Material_process" Width="1.5" PointX="8.25" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Mechine" Width="1.5" PointX="5.25" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Mechines_cat" Width="1.5" PointX="3" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.process_type" Width="1.5" PointX="6" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.processID" Width="1.5" PointX="6" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.product" Width="1.5" PointX="11.25" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.product_name" Width="1.5" PointX="6" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.SocialLog" Width="1.5" PointX="5.25" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.staff" Width="1.5" PointX="0.75" PointY="31.375" IsExpanded="true" />
         <EntityTypeShape EntityType="POSTDATAModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Table_1" Width="1.5" PointX="5.25" PointY="28.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Table_2" Width="1.5" PointX="5.25" PointY="32.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Table_3" Width="1.5" PointX="5.25" PointY="36.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Table_4" Width="1.5" PointX="5.25" PointY="40.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Table_5" Width="1.5" PointX="5.25" PointY="44.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Table_6" Width="1.5" PointX="5.25" PointY="49" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Table_7" Width="1.5" PointX="5.25" PointY="53" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Table_8" Width="1.5" PointX="5.25" PointY="57.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.Table_9" Width="1.5" PointX="5.25" PointY="61.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSTDATAModel.User_list" Width="1.5" PointX="3" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Table_1" Width="1.5" PointX="5.25" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Table_2" Width="1.5" PointX="5.25" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Table_3" Width="1.5" PointX="5.25" PointY="42.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Table_4" Width="1.5" PointX="5.25" PointY="46.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Table_5" Width="1.5" PointX="5.25" PointY="50.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Table_6" Width="1.5" PointX="5.25" PointY="54.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Table_7" Width="1.5" PointX="5.25" PointY="58.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Table_8" Width="1.5" PointX="5.25" PointY="62.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.Table_9" Width="1.5" PointX="5.25" PointY="66.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSTDATAModel.User_list" Width="1.5" PointX="3" PointY="28.25" IsExpanded="true" />
+        <AssociationConnector Association="POSTDATAModel.FK_BOM_product_name" ManuallyRouted="false" />
+        <AssociationConnector Association="POSTDATAModel.FK_BOM_User_list1" ManuallyRouted="false" />
         <AssociationConnector Association="POSTDATAModel.FK_Log_Tab_process_type" ManuallyRouted="false" />
         <AssociationConnector Association="POSTDATAModel.FK_Log_Tab_processID" ManuallyRouted="false" />
         <AssociationConnector Association="POSTDATAModel.FK_Log_Tab_User_list" ManuallyRouted="false" />
         <AssociationConnector Association="POSTDATAModel.FK_Material_process_Material_ontrack" ManuallyRouted="false" />
         <AssociationConnector Association="POSTDATAModel.FK_Material_process_User_list" ManuallyRouted="false" />
         <AssociationConnector Association="POSTDATAModel.FK_Material_process_User_list1" ManuallyRouted="false" />
-        <AssociationConnector Association="POSTDATAModel.FK_Mechine_status_Mechines_cat" ManuallyRouted="false" />
-        <AssociationConnector Association="POSTDATAModel.FK_Mechine_status_User_list" ManuallyRouted="false" />
+        <AssociationConnector Association="POSTDATAModel.FK_Mechine_Mechines_cat" ManuallyRouted="false" />
+        <AssociationConnector Association="POSTDATAModel.FK_Mechine_User_list" ManuallyRouted="false" />
         <AssociationConnector Association="POSTDATAModel.FK_product_product_name" ManuallyRouted="false" />
         <AssociationConnector Association="POSTDATAModel.FK_product_User_list" ManuallyRouted="false" />
         <AssociationConnector Association="POSTDATAModel.FK_SocialLog_User_list" ManuallyRouted="false" />

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "AddMechines";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>AddMechines</h2>
+
+<section class="content">
+    <div class="row">
+
+        <div class="col-md-9">
+            @Html.Partial("~/Areas/Admin/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+
+                @using (Html.BeginForm("AddMechines", "Mechines", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+
+                    @Html.Partial("Partial/MechineView")
+
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+
+
+

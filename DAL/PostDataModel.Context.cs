@@ -25,10 +25,11 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BOM> BOMs { get; set; }
         public virtual DbSet<Log_Tab> Log_Tab { get; set; }
         public virtual DbSet<Material_ontrack> Material_ontrack { get; set; }
         public virtual DbSet<Material_process> Material_process { get; set; }
-        public virtual DbSet<Mechine_status> Mechine_status { get; set; }
+        public virtual DbSet<Mechine> Mechines { get; set; }
         public virtual DbSet<Mechines_cat> Mechines_cat { get; set; }
         public virtual DbSet<process_type> process_types { get; set; }
         public virtual DbSet<processID> processIDs { get; set; }

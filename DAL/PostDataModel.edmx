@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="POSTDATAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Product_name" Type="int" Nullable="false" />
+          <Property Name="numberofprocess" Type="int" Nullable="false" />
+          <Property Name="listofprocessname" Type="varchar(max)" />
+          <Property Name="listoflabourers" Type="varchar(max)" />
+          <Property Name="listofmachineid" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="Log_Tab">
           <Key>
             <PropertyRef Name="ID" />
@@ -35,7 +47,7 @@
           <Property Name="Lat_Emp_workOn" Type="int" />
           <Property Name="Current_Emp_workOn" Type="int" />
         </EntityType>
-        <EntityType Name="Mechine_status">
+        <EntityType Name="Mechine">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -43,8 +55,8 @@
           <Property Name="MechID" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" />
           <Property Name="Type" Type="int" Nullable="false" />
-          <Property Name="LabourID" Type="int" Nullable="false" />
-          <Property Name="IsDown" Type="bit" Nullable="false" />
+          <Property Name="LabourID" Type="int" />
+          <Property Name="IsDown" Type="bit" />
           <Property Name="active_range" Type="int" />
         </EntityType>
         <EntityType Name="Mechines_cat">
@@ -275,6 +287,30 @@
           <Property Name="email" Type="varchar(max)" />
           <Property Name="username" Type="varchar(max)" />
         </EntityType>
+        <Association Name="FK_BOM_product_name">
+          <End Role="product_name" Type="Self.product_name" Multiplicity="1" />
+          <End Role="BOM" Type="Self.BOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product_name">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOM">
+              <PropertyRef Name="Product_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BOM_User_list1">
+          <End Role="User_list" Type="Self.User_list" Multiplicity="1" />
+          <End Role="BOM" Type="Self.BOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_list">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOM">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Log_Tab_process type">
           <End Role="process type" Type="Self.process type" Multiplicity="0..1" />
           <End Role="Log_Tab" Type="Self.Log_Tab" Multiplicity="*" />
@@ -347,26 +383,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Mechine_status_Mechines_cat">
+        <Association Name="FK_Mechine_Mechines_cat">
           <End Role="Mechines_cat" Type="Self.Mechines_cat" Multiplicity="1" />
-          <End Role="Mechine_status" Type="Self.Mechine_status" Multiplicity="*" />
+          <End Role="Mechine" Type="Self.Mechine" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Mechines_cat">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Mechine_status">
-              <PropertyRef Name="MechID" />
+            <Dependent Role="Mechine">
+              <PropertyRef Name="Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Mechine_status_User_list">
-          <End Role="User_list" Type="Self.User_list" Multiplicity="1" />
-          <End Role="Mechine_status" Type="Self.Mechine_status" Multiplicity="*" />
+        <Association Name="FK_Mechine_User_list">
+          <End Role="User_list" Type="Self.User_list" Multiplicity="0..1" />
+          <End Role="Mechine" Type="Self.Mechine" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User_list">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Mechine_status">
+            <Dependent Role="Mechine">
               <PropertyRef Name="LabourID" />
             </Dependent>
           </ReferentialConstraint>
@@ -648,10 +684,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="POSTDATAModelStoreContainer">
+          <EntitySet Name="BOM" EntityType="Self.BOM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Log_Tab" EntityType="Self.Log_Tab" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Material_ontrack" EntityType="Self.Material_ontrack" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Material_process" EntityType="Self.Material_process" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Mechine_status" EntityType="Self.Mechine_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mechine" EntityType="Self.Mechine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mechines_cat" EntityType="Self.Mechines_cat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="process type" EntityType="Self.process type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="processID" EntityType="Self.processID" Schema="dbo" store:Type="Tables" />
@@ -670,6 +707,14 @@
           <EntitySet Name="Table_8" EntityType="Self.Table_8" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table_9" EntityType="Self.Table_9" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_list" EntityType="Self.User_list" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BOM_product_name" Association="Self.FK_BOM_product_name">
+            <End Role="product_name" EntitySet="product_name" />
+            <End Role="BOM" EntitySet="BOM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BOM_User_list1" Association="Self.FK_BOM_User_list1">
+            <End Role="User_list" EntitySet="User_list" />
+            <End Role="BOM" EntitySet="BOM" />
+          </AssociationSet>
           <AssociationSet Name="FK_Log_Tab_process type" Association="Self.FK_Log_Tab_process type">
             <End Role="process type" EntitySet="process type" />
             <End Role="Log_Tab" EntitySet="Log_Tab" />
@@ -694,13 +739,13 @@
             <End Role="User_list" EntitySet="User_list" />
             <End Role="Material_process" EntitySet="Material_process" />
           </AssociationSet>
-          <AssociationSet Name="FK_Mechine_status_Mechines_cat" Association="Self.FK_Mechine_status_Mechines_cat">
+          <AssociationSet Name="FK_Mechine_Mechines_cat" Association="Self.FK_Mechine_Mechines_cat">
             <End Role="Mechines_cat" EntitySet="Mechines_cat" />
-            <End Role="Mechine_status" EntitySet="Mechine_status" />
+            <End Role="Mechine" EntitySet="Mechine" />
           </AssociationSet>
-          <AssociationSet Name="FK_Mechine_status_User_list" Association="Self.FK_Mechine_status_User_list">
+          <AssociationSet Name="FK_Mechine_User_list" Association="Self.FK_Mechine_User_list">
             <End Role="User_list" EntitySet="User_list" />
-            <End Role="Mechine_status" EntitySet="Mechine_status" />
+            <End Role="Mechine" EntitySet="Mechine" />
           </AssociationSet>
           <AssociationSet Name="FK_product_product_name" Association="Self.FK_product_product_name">
             <End Role="product_name" EntitySet="product_name" />
@@ -800,6 +845,20 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="POSTDATAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Product_name" Type="Int32" Nullable="false" />
+          <Property Name="numberofprocess" Type="Int32" Nullable="false" />
+          <Property Name="listofprocessname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="listoflabourers" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="listofmachineid" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="product_name1" Relationship="Self.FK_BOM_product_name" FromRole="BOM" ToRole="product_name" />
+          <NavigationProperty Name="User_list" Relationship="Self.FK_BOM_User_list1" FromRole="BOM" ToRole="User_list" />
+        </EntityType>
         <EntityType Name="Log_Tab">
           <Key>
             <PropertyRef Name="ID" />
@@ -837,7 +896,7 @@
           <NavigationProperty Name="User_list" Relationship="Self.FK_Material_process_User_list" FromRole="Material_process" ToRole="User_list" />
           <NavigationProperty Name="User_list1" Relationship="Self.FK_Material_process_User_list1" FromRole="Material_process" ToRole="User_list" />
         </EntityType>
-        <EntityType Name="Mechine_status">
+        <EntityType Name="Mechine">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -845,11 +904,11 @@
           <Property Name="MechID" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Type" Type="Int32" Nullable="false" />
-          <Property Name="LabourID" Type="Int32" Nullable="false" />
-          <Property Name="IsDown" Type="Boolean" Nullable="false" />
+          <Property Name="LabourID" Type="Int32" />
+          <Property Name="IsDown" Type="Boolean" />
           <Property Name="active_range" Type="Int32" />
-          <NavigationProperty Name="Mechines_cat" Relationship="Self.FK_Mechine_status_Mechines_cat" FromRole="Mechine_status" ToRole="Mechines_cat" />
-          <NavigationProperty Name="User_list" Relationship="Self.FK_Mechine_status_User_list" FromRole="Mechine_status" ToRole="User_list" />
+          <NavigationProperty Name="Mechines_cat" Relationship="Self.FK_Mechine_Mechines_cat" FromRole="Mechine" ToRole="Mechines_cat" />
+          <NavigationProperty Name="User_list" Relationship="Self.FK_Mechine_User_list" FromRole="Mechine" ToRole="User_list" />
         </EntityType>
         <EntityType Name="Mechines_cat">
           <Key>
@@ -858,7 +917,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Mechine_status" Relationship="Self.FK_Mechine_status_Mechines_cat" FromRole="Mechines_cat" ToRole="Mechine_status" />
+          <NavigationProperty Name="Mechines" Relationship="Self.FK_Mechine_Mechines_cat" FromRole="Mechines_cat" ToRole="Mechine" />
         </EntityType>
         <EntityType Name="process_type">
           <Key>
@@ -898,6 +957,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BOMs" Relationship="Self.FK_BOM_product_name" FromRole="product_name" ToRole="BOM" />
           <NavigationProperty Name="products" Relationship="Self.FK_product_product_name" FromRole="product_name" ToRole="product" />
         </EntityType>
         <EntityType Name="SocialLog">
@@ -1105,10 +1165,11 @@
           <Property Name="AddedDate" Type="DateTime" Precision="3" />
           <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BOMs" Relationship="Self.FK_BOM_User_list1" FromRole="User_list" ToRole="BOM" />
           <NavigationProperty Name="Log_Tab" Relationship="Self.FK_Log_Tab_User_list" FromRole="User_list" ToRole="Log_Tab" />
           <NavigationProperty Name="Material_process" Relationship="Self.FK_Material_process_User_list" FromRole="User_list" ToRole="Material_process" />
           <NavigationProperty Name="Material_process1" Relationship="Self.FK_Material_process_User_list1" FromRole="User_list" ToRole="Material_process" />
-          <NavigationProperty Name="Mechine_status" Relationship="Self.FK_Mechine_status_User_list" FromRole="User_list" ToRole="Mechine_status" />
+          <NavigationProperty Name="Mechines" Relationship="Self.FK_Mechine_User_list" FromRole="User_list" ToRole="Mechine" />
           <NavigationProperty Name="products" Relationship="Self.FK_product_User_list" FromRole="User_list" ToRole="product" />
           <NavigationProperty Name="SocialLogs" Relationship="Self.FK_SocialLog_User_list" FromRole="User_list" ToRole="SocialLog" />
           <NavigationProperty Name="staff" Relationship="Self.FK_User_list_staff" FromRole="User_list" ToRole="staff" />
@@ -1132,6 +1193,30 @@
           <NavigationProperty Name="Table_91" Relationship="Self.FK_Table_9_User_list1" FromRole="User_list" ToRole="Table_9" />
           <NavigationProperty Name="Table_92" Relationship="Self.FK_Table_9_User_list2" FromRole="User_list" ToRole="Table_9" />
         </EntityType>
+        <Association Name="FK_BOM_product_name">
+          <End Role="product_name" Type="Self.product_name" Multiplicity="1" />
+          <End Role="BOM" Type="Self.BOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product_name">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOM">
+              <PropertyRef Name="Product_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BOM_User_list1">
+          <End Role="User_list" Type="Self.User_list" Multiplicity="1" />
+          <End Role="BOM" Type="Self.BOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_list">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BOM">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Log_Tab_process_type">
           <End Role="process_type" Type="Self.process_type" Multiplicity="0..1" />
           <End Role="Log_Tab" Type="Self.Log_Tab" Multiplicity="*" />
@@ -1204,26 +1289,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Mechine_status_Mechines_cat">
+        <Association Name="FK_Mechine_Mechines_cat">
           <End Role="Mechines_cat" Type="Self.Mechines_cat" Multiplicity="1" />
-          <End Role="Mechine_status" Type="Self.Mechine_status" Multiplicity="*" />
+          <End Role="Mechine" Type="Self.Mechine" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Mechines_cat">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Mechine_status">
-              <PropertyRef Name="MechID" />
+            <Dependent Role="Mechine">
+              <PropertyRef Name="Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Mechine_status_User_list">
-          <End Role="User_list" Type="Self.User_list" Multiplicity="1" />
-          <End Role="Mechine_status" Type="Self.Mechine_status" Multiplicity="*" />
+        <Association Name="FK_Mechine_User_list">
+          <End Role="User_list" Type="Self.User_list" Multiplicity="0..1" />
+          <End Role="Mechine" Type="Self.Mechine" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User_list">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Mechine_status">
+            <Dependent Role="Mechine">
               <PropertyRef Name="LabourID" />
             </Dependent>
           </ReferentialConstraint>
@@ -1505,10 +1590,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="POSTDATAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BOMs" EntityType="Self.BOM" />
           <EntitySet Name="Log_Tab" EntityType="Self.Log_Tab" />
           <EntitySet Name="Material_ontrack" EntityType="Self.Material_ontrack" />
           <EntitySet Name="Material_process" EntityType="Self.Material_process" />
-          <EntitySet Name="Mechine_status" EntityType="Self.Mechine_status" />
+          <EntitySet Name="Mechines" EntityType="Self.Mechine" />
           <EntitySet Name="Mechines_cat" EntityType="Self.Mechines_cat" />
           <EntitySet Name="process_types" EntityType="Self.process_type" />
           <EntitySet Name="processIDs" EntityType="Self.processID" />
@@ -1527,6 +1613,14 @@
           <EntitySet Name="Table_8" EntityType="Self.Table_8" />
           <EntitySet Name="Table_9" EntityType="Self.Table_9" />
           <EntitySet Name="User_list" EntityType="Self.User_list" />
+          <AssociationSet Name="FK_BOM_product_name" Association="Self.FK_BOM_product_name">
+            <End Role="product_name" EntitySet="product_name" />
+            <End Role="BOM" EntitySet="BOMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BOM_User_list1" Association="Self.FK_BOM_User_list1">
+            <End Role="User_list" EntitySet="User_list" />
+            <End Role="BOM" EntitySet="BOMs" />
+          </AssociationSet>
           <AssociationSet Name="FK_Log_Tab_process_type" Association="Self.FK_Log_Tab_process_type">
             <End Role="process_type" EntitySet="process_types" />
             <End Role="Log_Tab" EntitySet="Log_Tab" />
@@ -1551,13 +1645,13 @@
             <End Role="User_list" EntitySet="User_list" />
             <End Role="Material_process" EntitySet="Material_process" />
           </AssociationSet>
-          <AssociationSet Name="FK_Mechine_status_Mechines_cat" Association="Self.FK_Mechine_status_Mechines_cat">
+          <AssociationSet Name="FK_Mechine_Mechines_cat" Association="Self.FK_Mechine_Mechines_cat">
             <End Role="Mechines_cat" EntitySet="Mechines_cat" />
-            <End Role="Mechine_status" EntitySet="Mechine_status" />
+            <End Role="Mechine" EntitySet="Mechines" />
           </AssociationSet>
-          <AssociationSet Name="FK_Mechine_status_User_list" Association="Self.FK_Mechine_status_User_list">
+          <AssociationSet Name="FK_Mechine_User_list" Association="Self.FK_Mechine_User_list">
             <End Role="User_list" EntitySet="User_list" />
-            <End Role="Mechine_status" EntitySet="Mechine_status" />
+            <End Role="Mechine" EntitySet="Mechines" />
           </AssociationSet>
           <AssociationSet Name="FK_product_product_name" Association="Self.FK_product_product_name">
             <End Role="product_name" EntitySet="product_name" />
@@ -1658,6 +1752,19 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="POSTDATAModelStoreContainer" CdmEntityContainer="POSTDATAEntities">
+          <EntitySetMapping Name="BOMs">
+            <EntityTypeMapping TypeName="POSTDATAModel.BOM">
+              <MappingFragment StoreEntitySet="BOM">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+                <ScalarProperty Name="numberofprocess" ColumnName="numberofprocess" />
+                <ScalarProperty Name="listofprocessname" ColumnName="listofprocessname" />
+                <ScalarProperty Name="listoflabourers" ColumnName="listoflabourers" />
+                <ScalarProperty Name="listofmachineid" ColumnName="listofmachineid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Log_Tab">
             <EntityTypeMapping TypeName="POSTDATAModel.Log_Tab">
               <MappingFragment StoreEntitySet="Log_Tab">
@@ -1691,9 +1798,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Mechine_status">
-            <EntityTypeMapping TypeName="POSTDATAModel.Mechine_status">
-              <MappingFragment StoreEntitySet="Mechine_status">
+          <EntitySetMapping Name="Mechines">
+            <EntityTypeMapping TypeName="POSTDATAModel.Mechine">
+              <MappingFragment StoreEntitySet="Mechine">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MechID" ColumnName="MechID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

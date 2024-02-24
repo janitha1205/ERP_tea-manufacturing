@@ -17,10 +17,11 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User_list()
         {
+            this.BOMs = new HashSet<BOM>();
             this.Log_Tab = new HashSet<Log_Tab>();
             this.Material_process = new HashSet<Material_process>();
             this.Material_process1 = new HashSet<Material_process>();
-            this.Mechine_status = new HashSet<Mechine_status>();
+            this.Mechines = new HashSet<Mechine>();
             this.products = new HashSet<product>();
             this.SocialLogs = new HashSet<SocialLog>();
             this.Table_1 = new HashSet<Table_1>();
@@ -58,13 +59,15 @@ namespace DAL
         public string username { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BOM> BOMs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Log_Tab> Log_Tab { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Material_process> Material_process { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Material_process> Material_process1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Mechine_status> Mechine_status { get; set; }
+        public virtual ICollection<Mechine> Mechines { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<product> products { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

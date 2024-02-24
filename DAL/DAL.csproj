@@ -69,50 +69,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BOM.cs">
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BomadvDAO.cs" />
+    <Compile Include="BomDAO.cs" />
     <Compile Include="LogDAO.cs" />
     <Compile Include="Log_Tab.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Material_ontrack.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Material_process.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mechine.cs">
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MechineDAO.cs" />
     <Compile Include="Mechines_cat.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Mechine_status.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MetaDAO.cs" />
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="PostContext.cs" />
+    <Compile Include="PostDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PostDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PostDataModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="processID.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="process_type.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="product.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="product_name.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -121,45 +127,45 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SocialLog.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SocialLogDAO.cs" />
     <Compile Include="staff.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Table_1.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Table_2.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Table_3.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Table_4.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Table_5.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Table_6.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Table_7.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Table_8.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Table_9.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UserDAO.cs" />
     <Compile Include="User_list.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -170,14 +176,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="PostDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PostDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PostDataModel.edmx.diagram">
+      <DependentUpon>PostDataModel.edmx</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -199,15 +205,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
+    <Content Include="PostDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>PostDataModel.edmx</DependentUpon>
+      <LastGenOutput>PostDataModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model1.tt">
+    <Content Include="PostDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>PostDataModel.edmx</DependentUpon>
+      <LastGenOutput>PostDataModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

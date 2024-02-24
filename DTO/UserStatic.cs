@@ -12,5 +12,8 @@ namespace DTO
         public static bool isAdmin {  get; set; }
         public static string Name { get; set; }
         public static string SureName { get; set; }
+        public static int numstations {  get; set; } 
+        public static int Lastid {  get; set; }
+        public static int pname {  get; set; }
     }
 }
