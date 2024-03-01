@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "AddMeta_SE";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+<section class="content-header">
+
+    <h1>Add Meta operation</h1>
+    <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a>Tea Manufacturing</a></li>
+        <li class="breadcrumb-item"><a>SE</a></li>
+        <li class="breadcrumb-item active"><a>Add Meta</a></li>
+
+
+    </ol>
+
+</section>
+
+<br />
+<a href="~/Admin/SE/MetaList_SE">Meta List</a>
+<br />
+
+<section class="content">
+    <div class="row">
+
+        <div class="col-md-9">
+            @Html.Partial("~/Areas/Admin/Views/Shared/MessageForm.cshtml")
+            <div class="box box-primary">
+
+                @using (Html.BeginForm("AddMeta_SE", "SE", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+
+                    @Html.Partial("Partial/MetaForm")
+
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+

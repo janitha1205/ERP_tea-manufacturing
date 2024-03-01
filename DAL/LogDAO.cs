@@ -16,14 +16,14 @@ namespace DAL
     {
   
 
-        public static void AddLog(int processType, string Tablename, int processID)
+        public static void AddLog(int processType, string Tablename)
         {
            
 
                 Log_Tab log = new Log_Tab();
                 log.UserID = UserStatic.ID;
                 log.ProcessType = processType;
-                log.ProcessID = processID;
+               
                 log.ProcessCatType = Tablename;
                 log.ProcessDate = DateTime.Now;
                 log.ProcessIPAddress = HttpContext.Current.Request.UserHostAddress;

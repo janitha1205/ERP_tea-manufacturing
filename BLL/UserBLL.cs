@@ -29,7 +29,7 @@ namespace BLL
             newusr.username = dto.UserName;
             newusr.AddedDate=DateTime.Now;
             int id = userdao.AddUser(newusr);
-            LogDAO.AddLog(General.Messegess.AddSuccess, "user is sucessfully added for further completion", id);
+            LogBLL.AddLog(General.Messegess.AddSuccess, "user is sucessfully added for further completion");
 
         }
 
@@ -56,7 +56,9 @@ namespace BLL
         public string UpdateUser(UserDTO dto)
         {
             string oldimgpath = userdao.UpdateUser(dto);
-            LogDAO.AddLog(General.Messegess.UpdateSuccess, "changed the image path sucessfully ", dto.ID);
+
+            LogBLL.AddLog(General.Messegess.UpdateSuccess, "changed the image path sucessfully ");
+
             return oldimgpath;
         }
     }

@@ -22,7 +22,7 @@ namespace BLL
             social.LastUpdateUserID = UserStatic.ID;
 
             int ID=dao.AddSocialLog(social);
-            LogDAO.AddLog(General.Messegess.AddSuccess, "Social Log Has been Sucessfully added", ID);
+          //  LogBLL.AddLog(General.Messegess.AddSuccess, "Social Log Has been Sucessfully added");
                
            
             return true;
@@ -44,7 +44,7 @@ namespace BLL
         public string UpdateSocialLog(SocialLogDTO model)
         {
             string oldimg = dao.UpdateSocialLog(model);
-            LogDAO.AddLog(General.Messegess.UpdateSuccess, "Change img path from" + oldimg,model.ID);
+         //   LogBLL.AddLog(General.Messegess.UpdateSuccess, "Change img path from" + oldimg);
             return oldimg;
         }
     }

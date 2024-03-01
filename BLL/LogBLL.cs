@@ -9,9 +9,9 @@ namespace BLL
 {
     public class LogBLL
     {
-        public static void AddLog(int processtype,string tablename,int processid)
+        public static void AddLog(int processtype,string tablename)
         {
-            LogDAO.AddLog(processtype,tablename,processid);
+            LogDAO.AddLog(processtype,tablename);
         }
     }
 }

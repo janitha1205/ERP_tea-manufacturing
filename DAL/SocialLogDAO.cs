@@ -24,33 +24,45 @@ namespace DAL
 
         public List<SocialLogDTO> GetSocialLog()
         {
-            List<SocialLog> list = db.SocialLogs.Where(x => x.IsDeleted == null).ToList();
-            List<SocialLogDTO> dtolist= new List<SocialLogDTO>();
-            foreach (var item in list)
+            try
             {
-                SocialLogDTO dTO = new SocialLogDTO();  
-                dTO.ID = item.ID;
-                dTO.Name = item.Name;
-                dTO.ImagePath = item.ImagePath;
-                dTO.Link= item.Link;
-                dtolist.Add(dTO);
+                List<SocialLog> list = db.SocialLogs.Where(x => x.IsDeleted == null).ToList();
+                List<SocialLogDTO> dtolist = new List<SocialLogDTO>();
+                foreach (var item in list)
+                {
+                    SocialLogDTO dTO = new SocialLogDTO();
+                    dTO.ID = item.ID;
+                    dTO.Name = item.Name;
+                    dTO.ImagePath = item.ImagePath;
+                    dTO.Link = item.Link;
+                    dtolist.Add(dTO);
+                }
+                return dtolist;
+            }catch (Exception ex)
+            {
+                return null;
             }
-            return dtolist;
         }
 
         public SocialLogDTO GetSocialLogByID(int iD)
         {
-            SocialLog social = db.SocialLogs.FirstOrDefault(x => x.ID == iD);
-            SocialLogDTO dto = new SocialLogDTO();  
-            if (social != null)
+            try
             {
-                dto.ID = social.ID;
-                dto.MetaID = social.LastUpdateUserID;
-                dto.Name = social.Name;
-                dto.Link = social.Link;
-                dto.ImagePath = social.ImagePath;   
+                SocialLog social = db.SocialLogs.FirstOrDefault(x => x.ID == iD);
+                SocialLogDTO dto = new SocialLogDTO();
+                if (social != null)
+                {
+                    dto.ID = social.ID;
+                    dto.MetaID = social.LastUpdateUserID;
+                    dto.Name = social.Name;
+                    dto.Link = social.Link;
+                    dto.ImagePath = social.ImagePath;
+                }
+                return dto;
+            }catch(Exception ex)
+            {
+                return null;
             }
-            return dto;
         }
 
         public string UpdateSocialLog(SocialLogDTO model)
@@ -75,7 +87,7 @@ namespace DAL
             }
             catch(Exception ex)
             {
-                throw ex;
+                return null;
             }
             
         }

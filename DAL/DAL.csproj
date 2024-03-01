@@ -69,6 +69,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BOM.cs">
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BomadvDAO.cs" />
+    <Compile Include="BomDAO.cs" />
     <Compile Include="LogDAO.cs" />
     <Compile Include="Log_Tab.cs">
       <DependentUpon>PostDataModel.tt</DependentUpon>
@@ -86,9 +91,6 @@
       <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MetaDAO.cs" />
-    <Compile Include="MetaInfo.cs">
-      <DependentUpon>PostDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="PostContext.cs" />
     <Compile Include="PostDataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -131,6 +133,33 @@
       <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table_1.cs">
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table_2.cs">
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table_3.cs">
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table_4.cs">
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table_5.cs">
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table_6.cs">
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table_7.cs">
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table_8.cs">
+      <DependentUpon>PostDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table_9.cs">
       <DependentUpon>PostDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UserDAO.cs" />

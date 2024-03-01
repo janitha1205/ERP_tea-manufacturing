@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BomadvBLL.cs" />
+    <Compile Include="BomBLL.cs" />
     <Compile Include="General.cs" />
     <Compile Include="LogBLL.cs" />
     <Compile Include="MetaBLL.cs" />

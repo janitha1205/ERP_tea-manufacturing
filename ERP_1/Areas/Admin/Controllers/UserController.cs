@@ -102,7 +102,10 @@ namespace ERP_1.Areas.Admin.Controllers
                 string oldimgpath = bll.UpdateUser(dto);
                 if (dto.UserImage != null)
                 {
-                    if (System.IO.File.Exists(Server.MapPath("~/Areas/Admin/content/UserImage/" + oldimgpath)))
+
+                
+                    if (System.IO.File.Exists(Server.MapPath("~/Areas/Admin/content/UserImage" + oldimgpath)))
+
                     {
                         System.IO.File.Delete(Server.MapPath("~/Areas/Admin/content/UserImage/" + oldimgpath));
 

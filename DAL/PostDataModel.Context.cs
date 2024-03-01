@@ -25,12 +25,12 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BOM> BOMs { get; set; }
         public virtual DbSet<Log_Tab> Log_Tab { get; set; }
         public virtual DbSet<Material_ontrack> Material_ontrack { get; set; }
         public virtual DbSet<Material_process> Material_process { get; set; }
         public virtual DbSet<Mechine_status> Mechine_status { get; set; }
         public virtual DbSet<Mechines_cat> Mechines_cat { get; set; }
-        public virtual DbSet<MetaInfo> MetaInfoes { get; set; }
         public virtual DbSet<process_type> process_types { get; set; }
         public virtual DbSet<processID> processIDs { get; set; }
         public virtual DbSet<product> products { get; set; }
@@ -38,6 +38,15 @@ namespace DAL
         public virtual DbSet<SocialLog> SocialLogs { get; set; }
         public virtual DbSet<staff> staffs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Table_1> Table_1 { get; set; }
+        public virtual DbSet<Table_2> Table_2 { get; set; }
+        public virtual DbSet<Table_3> Table_3 { get; set; }
+        public virtual DbSet<Table_4> Table_4 { get; set; }
+        public virtual DbSet<Table_5> Table_5 { get; set; }
+        public virtual DbSet<Table_6> Table_6 { get; set; }
+        public virtual DbSet<Table_7> Table_7 { get; set; }
+        public virtual DbSet<Table_8> Table_8 { get; set; }
+        public virtual DbSet<Table_9> Table_9 { get; set; }
         public virtual DbSet<User_list> User_list { get; set; }
     }
 }

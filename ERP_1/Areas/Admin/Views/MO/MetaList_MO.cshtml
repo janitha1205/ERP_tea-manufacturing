@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "MetaList_MO";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+@model List<DTO.MetaDTO_MO>
+
+
+<section class="content-header">
+    <h1>Meta List</h1>
+    <ol class="breadcrumb float-sm-left">
+
+        <li class="breadcrumb-item"><a>Tea Manufacturing</a></li>
+        <li class="breadcrumb-item"><a>MO</a></li>
+        <li class="breadcrumb-item"><a>Meta List</a></li>
+    </ol>
+</section>
+
+
+<div class="card-footer">
+    <a href="~/Admin/MO/AddMeta_MO">Add Meta</a>
+
+</div>
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Meta List of comment</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>MetaID</th>
+                    <th>Name</th>
+                    <th>About</th>
+                    <th>MetaContent</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>
+                            @item.MetaID
+                        </td>
+                        <td>@item.Name</td>
+                        <td> @item.About</td>
+                        <td>@item.MetaContent</td>
+                        <td><a href="/Admin/MO/UpdateMata_MO/@item.ID">Update</a></td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>MetaID</th>
+                    <th>Name</th>
+                    <th>About</th>
+                    <th>MetaContent</th>
+                    <th>Update</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.card-body -->
+    <!-- /.card -->
+    </div >
+
+
+
+
+    <!-- /.card -->
+
+

@@ -133,30 +133,24 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BOMadnvacedController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BOMController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FEController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FMController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HREController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HRMController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
-    <Compile Include="Areas\Admin\Controllers\MetaController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PostController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MOController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MPPController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PEController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PMController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SEController.cs" />
     <Compile Include="Areas\Admin\Controllers\SocialLogController.cs" />
+    <Compile Include="Areas\Admin\Controllers\STController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MechineController.cs" />
-    <Compile Include="Controllers\MaterialController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\WorkInProcessController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\employee\Admin.cs" />
-    <Compile Include="Models\employee\administration.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\employee\Labour.cs" />
-    <Compile Include="Models\employee\management.cs" />
-    <Compile Include="Models\employee\productionstaff.cs" />
-    <Compile Include="Models\Material.cs" />
-    <Compile Include="Models\Mechine.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\WorkInProgress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -179,11 +173,7 @@
     <Content Include="Areas\Admin\content\webfonts\fa-solid-900.woff" />
     <Content Include="Areas\Admin\content\webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\Admin\Views\Post\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Meta\AddMeta.cshtml" />
-    <Content Include="Areas\Admin\Views\Meta\Partial\MetaForm.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\MessageForm.cshtml" />
-    <Content Include="Areas\Admin\Views\Meta\MetaList.cshtml" />
-    <Content Include="Areas\Admin\Views\Meta\UpdateMata.cshtml" />
     <Content Include="Areas\Admin\Views\SocialLog\AddSocialLog.cshtml" />
     <Content Include="Areas\Admin\Views\SocialLog\Partial\SocialLogForm.cshtml" />
     <Content Include="Areas\Admin\Views\SocialLog\SocialLogList.cshtml" />
@@ -192,6 +182,7 @@
     <Content Include="Areas\Admin\Views\User\Partial\UserForm.cshtml" />
     <Content Include="Areas\Admin\Views\User\UserList.cshtml" />
     <Content Include="Areas\Admin\Views\User\UpdateUser.cshtml" />
+
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -242,6 +233,9 @@
     <Folder Include="Areas\Admin\content\socialmediaimagess\" />
     <Folder Include="Areas\Admin\content\UserImage\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\MPP\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
