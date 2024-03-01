@@ -77,6 +77,27 @@ namespace DAL
             return dto;
         }
 
+        public UserDTO GetUserWithID(int id)
+        {
+            User_list user = db.User_list.First(x => x.ID == id);
+            UserDTO dto=  new UserDTO();
+            if (user != null)
+            {
+                dto.ID = user.ID;
+                dto.email = user.email;
+                dto.Name = user.Name;
+                dto.SureName= user.SureName;
+                dto.imagepath = user.imagepath;
+                dto.info_ID = user.infor_ID;
+                dto.UserName= user.username;
+                dto.session_ID= user.session_ID;
+                dto.Password = user.Password;
+
+                
+            }
+            return dto;
+        }
+
         public UserDTO GetUserWithUsernameAndPassword(UserDTO model) {
             UserDTO dto= new UserDTO();
           
@@ -128,6 +149,7 @@ namespace DAL
             try {
                 User_list user = db.User_list.First(x => x.ID == dto.ID);
                 string oldaimagepath= user.imagepath.ToString();
+
               
                 if (dto.imagepath != null)
                 {
@@ -145,6 +167,7 @@ namespace DAL
               
                
              
+
                 return oldaimagepath;
 
             }

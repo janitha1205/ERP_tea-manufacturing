@@ -56,7 +56,9 @@ namespace BLL
         public string UpdateUser(UserDTO dto)
         {
             string oldimgpath = userdao.UpdateUser(dto);
+
             LogBLL.AddLog(General.Messegess.UpdateSuccess, "changed the image path sucessfully ");
+
             return oldimgpath;
         }
     }
