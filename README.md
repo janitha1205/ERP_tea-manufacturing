@@ -8,7 +8,7 @@ To improve this, the enterprise resource planning system has to be an added adva
 This system is able to maintain streamline required information to certain parties, essential to something corporate dissension making. This kind of system needs feedback to keep on updating information availability to resource allocation and labour allocation, in order to keep the production process smooth and identical. Degree of validity of information that is extracted by the system is useful for keeping on the track of the optimal way of tea manufacturing. The ERP base system has incurred those characteristics.
 
 ### Demo Video
-
+- [x] [DB creation](https://youtu.be/ByrHVNGVjlA)
 ### Authours
 
 - [Janitha Thalagoda](https://github.com/janitha1205)
