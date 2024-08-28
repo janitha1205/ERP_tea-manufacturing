@@ -36,3 +36,6 @@ examples: [basic .net webform](https://learn.microsoft.com/en-us/aspnet/web-form
 exapmles 1: [basic connectivity](https://www.mssqltips.com/sqlservertip/7461/developing-a-web-application-with-aspnet-and-sql-server/)
 
 examples 2: [basic connectivity examples](https://learn.microsoft.com/en-us/aspnet/web-pages/overview/data/5-working-with-data)
+
+### final thesis Msc IT :
+https://drive.google.com/file/d/1EzOo-GgvfW8vuVl6Mtm9LKsLBpbgB-JS/view?usp=drive_link
